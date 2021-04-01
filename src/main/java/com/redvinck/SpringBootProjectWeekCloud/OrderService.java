@@ -27,7 +27,7 @@ public class OrderService {
         orderRepository.save(order);
     }
 
-    public List<Order> findAllByUserID(Integer id) {
+    public List<Order> findAllByUserId(long id) {
         return orderRepository.findAllByUserId(id);
     }
 }

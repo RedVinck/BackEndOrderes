@@ -31,13 +31,13 @@ public class OrderController {
     }
 
     @RequestMapping("/orders/{userId}")
-    public List<Order> getAllProducts(@PathVariable("userId") Integer id, @AuthenticationPrincipal Jwt accessToken) throws IllegalAccessException {
+    public List<Order> getAllProducts(@PathVariable("userId") long id, @AuthenticationPrincipal Jwt accessToken) throws IllegalAccessException {
         String scope = accessToken.getClaims().get("scope").toString();
         Boolean partnerRole = scope.contains("admin");
         System.out.println("Contains sequence 'admin': " + accessToken.getClaims().get("scope").toString());
         System.out.println("Contains sequence 'admin': " + accessToken.getClaims().get("scope").toString().contains("admin"));
         if (partnerRole) {
-            return orderService.findAllByUserID(id);
+            return orderService.findAllByUserId(id);
         }
         else{
             throw new IllegalAccessException("Your privileges do not allow you to view the orders, contact an admin if you believe this is in error.");
