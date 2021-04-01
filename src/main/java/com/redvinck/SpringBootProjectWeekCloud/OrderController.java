@@ -59,13 +59,13 @@ public class OrderController {
         }
     }
 
-    @RequestMapping(method = RequestMethod.POST, value = "/orders")
+/*    @RequestMapping(method = RequestMethod.POST, value = "/orders")
     public String addProduct(@RequestBody Order order) {
         System.out.println("In POST Request");
         if (addProduct()) {
             return "Product added";
         } else throw new IllegalArgumentException("Product was not added");
-    }
+    }*/
 
     @DeleteMapping(value = "/delete/{id}")
     public void deleteTeam(@PathVariable("id") long id, @AuthenticationPrincipal Jwt accessToken) throws IllegalAccessException {
@@ -81,7 +81,14 @@ public class OrderController {
     }
 
     @RequestMapping("/add")
-    public boolean addProduct() {
+    public boolean addOrder(@RequestBody Order order) {
+        System.out.println("Added mockup");
+        orderService.save(order);
+        return true;
+    }
+
+    @RequestMapping("/mockup")
+    public boolean addMockup() {
         System.out.println("Added mockup");
         //To be modified with updated parameters from front-end
         Order order = new Order(LocalDateTime.now(), null, 5, true, "9bd0892a-e88c-44fe-b939-10e3f8b0b0dd");
@@ -89,9 +96,4 @@ public class OrderController {
         return true;
     }
 
-
-    @RequestMapping("/info")
-    public String getInfo( @AuthenticationPrincipal Jwt accessToken) {
-        return accessToken.getClaims().toString();
-    }
 }
