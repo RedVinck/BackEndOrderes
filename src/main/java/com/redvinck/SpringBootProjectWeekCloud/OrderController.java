@@ -17,7 +17,7 @@ public class OrderController {
 
     @RequestMapping("/orders")
     public List<Order> getAllProducts(@AuthenticationPrincipal Jwt accessToken) throws IllegalAccessException {
-        return orderService.findAllByUserId((String) accessToken.getClaims().get("id"));
+        return orderService.findAll();
 /*        String scope = accessToken.getClaims().get("scope").toString();
         Boolean partnerRole = scope.contains("admin");
         System.out.println("Contains sequence 'admin': " + accessToken.getClaims().get("scope").toString());
@@ -88,4 +88,12 @@ public class OrderController {
         orderService.save(order);
         return true;
     }
+
+
+    @RequestMapping("/info")
+    public String getInfo( @AuthenticationPrincipal Jwt accessToken) {
+        return accessToken.getClaims().toString();
+    }
+
+
 }
