@@ -32,7 +32,8 @@ public class OrderController {
 
     @RequestMapping("/orders/{userId}")
     public List<Order> getAllProducts(@PathVariable("userId") long id, @AuthenticationPrincipal Jwt accessToken) throws IllegalAccessException {
-        String scope = accessToken.getClaims().get("scope").toString();
+        return orderService.findAllByUserId(id);
+/*        String scope = accessToken.getClaims().get("scope").toString();
         Boolean partnerRole = scope.contains("admin");
         System.out.println("Contains sequence 'admin': " + accessToken.getClaims().get("scope").toString());
         System.out.println("Contains sequence 'admin': " + accessToken.getClaims().get("scope").toString().contains("admin"));
@@ -41,7 +42,7 @@ public class OrderController {
         }
         else{
             throw new IllegalAccessException("Your privileges do not allow you to view the orders, contact an admin if you believe this is in error.");
-        }
+        }*/
     }
 
     @GetMapping("/check")
