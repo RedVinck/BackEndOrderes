@@ -80,7 +80,7 @@ public class OrderController {
         }
     }
 
-    @RequestMapping("/add")
+    @RequestMapping(method = RequestMethod.POST, value = "/add")
     public boolean addOrder(@RequestBody Order order) {
         System.out.println("Added mockup");
         orderService.save(order);
