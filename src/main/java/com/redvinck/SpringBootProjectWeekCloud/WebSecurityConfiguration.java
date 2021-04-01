@@ -32,6 +32,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .mvcMatchers(HttpMethod.GET, "/orders/**").permitAll() // GET requests don't need auth
                 .mvcMatchers(HttpMethod.GET, "/**").permitAll() // GET requests don't need auth
+
                 .anyRequest()
                 .authenticated()
                 .and()
