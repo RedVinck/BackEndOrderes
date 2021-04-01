@@ -94,6 +94,4 @@ public class OrderController {
     public String getInfo( @AuthenticationPrincipal Jwt accessToken) {
         return accessToken.getClaims().toString();
     }
-
-
 }
