@@ -218,12 +218,12 @@ ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-Dspring.profiles.
 Create a docker image and test it locally:
 
 ```
-# docker build -t product:1.0 .
+# docker build -t order:1.0 .
 ```
 Start a container using the newly created image
 
 ```
-# docker run --name productservice -d -p 8000:8000 product:1.0
+# docker run --name productservice -d -p 8000:8000 order:1.0
 ```
 Check the application : open a browser <http://localhost:3000/products>
 
@@ -258,19 +258,19 @@ This will allow to login using a one-time password via a browser, authentication
 ```
 Take a not of the namespace !!!
 
-Next tag the local docker image to point to the remote registry. In the example below we replace the tag "product:1.0" with "de.icr.io/<your_namespace>/product:1.0" (this points to a registry within the "Frankfurt" region)
+Next tag the local docker image to point to the remote registry. In the example below we replace the tag "order:1.0" with "de.icr.io/<your_namespace>/order:1.0" (this points to a registry within the "Frankfurt" region)
 
 ```
-# docker tag product:1.0 de.icr.io/<your_namespace>/product:1.0
+# docker tag order:1.0 de.icr.io/<your_namespace>/order:1.0
 # docker images
 REPOSITORY                                 TAG              IMAGE ID       CREATED        SIZE
-de.icr.io/<your_namespace>/product             1.0              ffc3ba48e36f   2 hours ago    508MB
+de.icr.io/<your_namespace>/order             1.0              ffc3ba48e36f   2 hours ago    508MB
 ```
 
 ### Push image to remote repository
 
 ```
-# docker push de.icr.io/<your_namespace>/product:1.0
+# docker push de.icr.io/<your_namespace>/order:1.0
 ```
 Now the image resides in the Cloud registry. You can also verify this within the Cloud service or via the following command:
  
@@ -279,7 +279,7 @@ Now the image resides in the Cloud registry. You can also verify this within the
 Listing images...
 
 Repository                        Tag   Digest         Namespace      Created      Size     Security status
-de.icr.io/<namespace>/product    1.0   30804ebe2a73   ydbnamespace   1 hour ago   269 MB   37 Issues
+de.icr.io/<namespace>/order    1.0   30804ebe2a73   ydbnamespace   1 hour ago   269 MB   37 Issues
 ```
 
 ### Login to RedHat OpenShift environment
@@ -309,7 +309,7 @@ Create a Secret in OpenShift from the command-line:
 Replace the following command to include <your_namespace> before executing !
 
 ```
-# kubectl create deployment product --image=de.icr.io/<your_namespace>/product:1.0 --dry-run=client -o=yaml > deployment.yaml
+# kubectl create deployment order --image=de.icr.io/<your_namespace>/order:1.0 --dry-run=client -o=yaml > deployment.yaml
 # cat deployment.yaml
 # kubectl apply -f deployment.yaml
 ```
@@ -317,7 +317,7 @@ Replace the following command to include <your_namespace> before executing !
 ### Create a service on Openshift for our deployment
 
 ```
-# kubectl create service clusterip product --tcp=8000:8000 --dry-run=client -o=yaml >> service.yaml
+# kubectl create service clusterip order --tcp=8000:8000 --dry-run=client -o=yaml >> service.yaml
 # kubectl apply -f service.yaml
 ```
 
@@ -326,7 +326,7 @@ Replace the following command to include <your_namespace> before executing !
 Openshift provides an easy way to create a route via the following command:
 
 ```
-# oc expose svc/product
+# oc expose svc/order
 ```
 
 Of course, you don't have to expose the service via a route if it's only for internal use.

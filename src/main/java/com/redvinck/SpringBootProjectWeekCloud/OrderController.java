@@ -1,9 +1,11 @@
 package com.redvinck.SpringBootProjectWeekCloud;
 
+import org.hibernate.annotations.Type;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.oauth2.jwt.Jwt;
 
-import java.util.Arrays;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -11,13 +13,13 @@ import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin(origins = "*, http://localhost:8080", allowedHeaders = "*", allowCredentials = "true")
 @RestController
-public class ProductController {
+public class OrderController {
 
     @Autowired
-    private ProductService productService;
+    private OrderService orderService;
 
-    @RequestMapping("/products")
-    public List<Product> getAllProducts() {
+    @RequestMapping("/orders")
+    public List<Order> getAllProducts() {
         /*return Arrays.asList(
 =======
        /* return Arrays.asList(
@@ -47,7 +49,7 @@ public class ProductController {
                 1800
             )
         );*/
-        return productService.findAll();
+        return orderService.findAll();
     }
 
     @GetMapping("/check")
@@ -67,12 +69,12 @@ public class ProductController {
 
 
     @RequestMapping("/all")
-        public List<Product> getAll() {
-            return productService.findAll();
+        public List<Order> getAll() {
+            return orderService.findAll();
         }
 
-    @RequestMapping(method = RequestMethod.POST, value = "/products")
-    public String addProduct(@RequestBody Product product, @AuthenticationPrincipal Jwt accessToken) {
+    @RequestMapping(method = RequestMethod.POST, value = "/orders")
+    public String addProduct(@RequestBody Order order, @AuthenticationPrincipal Jwt accessToken) {
         System.out.println("In POST Request");
         String scope = accessToken.getClaims().get("scope").toString();
         Boolean partnerRole = scope.contains("partner");
@@ -83,24 +85,23 @@ public class ProductController {
             addProduct();
             return "Product added";
         } else {
-            return "Not Authorized to add product";
+            return "Not Authorized to add order";
         }
     }
 
+
+
     @DeleteMapping("/delete/{id}")
     public void deleteTeam(@PathVariable("id") long id) {
-        productService.deleteById(id);
+        orderService.deleteById(id);
     }
 
+    @RequestMapping("/add")
     public void addProduct(){
+        System.out.println("Added mockup");
         //To be modified with updated parameters from front-end
-        Product laptop=new Product(
-                "Macbook Pro 13.3' Retina MF841LL/A",
-                "Macbook Pro 13.3' Retina MF841LL/A Model 2015 Option Ram Care 12/2016",
-                "https://www.dropbox.com/s/6tqcep7rk29l59e/img2.jpeg?raw=1",
-                15,
-                1199
-        );
-        productService.save(laptop);
+ Order order = new Order(LocalDateTime.now(), null,5,true,2);
+        orderService.save(order);
+
     }
 }

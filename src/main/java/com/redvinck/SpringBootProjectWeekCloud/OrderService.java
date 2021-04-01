@@ -6,24 +6,24 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class ProductService {
+public class OrderService {
 
     @Autowired
-    private ProductRepository productRepository;
+    private OrderRepository orderRepository;
 
 
-    public List<Product> findAll() {
-        return productRepository.findAll();
+    public List<Order> findAll() {
+        return orderRepository.findAll();
     }
 
     public void deleteById(long id) {
-        productRepository.deleteById(id);
+        orderRepository.deleteById(id);
     }
 
 
 
-    public void save(Product product) {
-        productRepository.save(product);
+    public void save(Order order) {
+        orderRepository.save(order);
     }
     
     

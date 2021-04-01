@@ -1,11 +1,6 @@
 package com.redvinck.SpringBootProjectWeekCloud;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import java.io.Serializable;
+import javax.persistence.*;
 
 
 @Entity
@@ -25,7 +20,7 @@ public class Product {
 
     }
 
-    public Product(String title,String description, String thumbnail_url, Integer quantity, float price) {
+    public Product(String title, String description, String thumbnail_url, Integer quantity, float price) {
         super();
         this.title = title;
         this.description = description;
