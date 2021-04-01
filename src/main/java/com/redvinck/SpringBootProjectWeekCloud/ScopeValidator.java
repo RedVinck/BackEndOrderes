@@ -17,8 +17,8 @@ class ScopeValidator implements OAuth2TokenValidator<Jwt> {
 
     public OAuth2TokenValidatorResult validate(Jwt jwt) {
         String scopes = jwt.getClaims().get("scope").toString();
-        System.out.println("Contains sequence 'partner': " + jwt.getClaims().get("scope").toString());
-        System.out.println("Contains sequence 'partner': " + jwt.getClaims().get("scope").toString().contains("partner"));
+        System.out.println("Contains sequence 'admin': " + jwt.getClaims().get("scope").toString());
+        System.out.println("Contains sequence 'admin': " + jwt.getClaims().get("scope").toString().contains("partner"));
         if (scopes.contains(this.scope)) {
             System.out.println("Successful ScopeValidator");
             return OAuth2TokenValidatorResult.success();

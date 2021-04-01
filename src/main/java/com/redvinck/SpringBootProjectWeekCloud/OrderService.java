@@ -3,6 +3,7 @@ package com.redvinck.SpringBootProjectWeekCloud;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -25,6 +26,8 @@ public class OrderService {
     public void save(Order order) {
         orderRepository.save(order);
     }
-    
-    
+
+    public List<Order> findAllByUserID(Integer id) {
+        return orderRepository.findAllByUserID(id);
+    }
 }

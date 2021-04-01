@@ -21,24 +21,24 @@ public class Order {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private long id;
     private LocalDateTime date;
     @Type(type = "list-array")
     @Column(
             name = "orderid",
-            columnDefinition = "text[]"
+            columnDefinition = "Text[]"
     )
-    private List<Integer> orderid;
+    private List<Long> orderid;
     private int totalPrice;
     private boolean paid;
-    private int userId;
+    private long userId;
 
 
     public Order() {
 
     }
 
-    public Order(int id, LocalDateTime date, List<Integer> orderid, int totalPrice, boolean paid, int userId) {
+    public Order(int id, LocalDateTime date, List<Long> orderid, int totalPrice, boolean paid, int userId) {
         this.id = id;
         this.date = date;
         this.orderid = orderid;
@@ -47,7 +47,7 @@ public class Order {
         this.userId = userId;
     }
 
-    public Order(LocalDateTime date, List<Integer> orderid, int totalPrice, boolean paid, int userId) {
+    public Order(LocalDateTime date, List<Long> orderid, int totalPrice, boolean paid, int userId) {
         this.date = date;
         this.orderid = orderid;
         this.totalPrice = totalPrice;
@@ -63,11 +63,11 @@ public class Order {
         this.date = date;
     }
 
-    public List<Integer> getOrders() {
+    public List<Long> getOrders() {
         return orderid;
     }
 
-    public void setOrders(List<Integer> orderid) {
+    public void setOrders(List<Long> orderid) {
         this.orderid = orderid;
     }
 
@@ -87,7 +87,7 @@ public class Order {
         this.paid = paid;
     }
 
-    public int getUserId() {
+    public long getUserId() {
         return userId;
     }
 
