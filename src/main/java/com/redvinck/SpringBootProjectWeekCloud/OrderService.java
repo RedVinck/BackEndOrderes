@@ -28,6 +28,6 @@ public class OrderService {
     }
 
     public List<Order> findAllByUserID(Integer id) {
-        return orderRepository.findAllByUserID(id);
+        return orderRepository.findAllByUserId(id);
     }
 }
