@@ -1,8 +1,0 @@
-com\redvinck\SpringBootProjectWeekCloud\OrderApplication.class
-com\redvinck\SpringBootProjectWeekCloud\ScopeValidator.class
-com\redvinck\SpringBootProjectWeekCloud\WebSecurityConfiguration.class
-com\redvinck\SpringBootProjectWeekCloud\OrderController.class
-com\redvinck\SpringBootProjectWeekCloud\OrderRepository.class
-com\redvinck\SpringBootProjectWeekCloud\Order.class
-com\redvinck\SpringBootProjectWeekCloud\Product.class
-com\redvinck\SpringBootProjectWeekCloud\OrderService.class
