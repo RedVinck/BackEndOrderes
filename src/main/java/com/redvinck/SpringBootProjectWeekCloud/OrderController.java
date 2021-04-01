@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.time.LocalDateTime;
 import java.util.List;
 
-@CrossOrigin(origins = "*, http://localhost:8080", allowedHeaders = "*", allowCredentials = "true")
+@CrossOrigin(origins = "http://frontend-ucllteam02.ocp-ucll-40cb0df2b03969eabb3fac6e80373775-0000.eu-de.containers.appdomain.cloud", allowedHeaders = "*", allowCredentials = "true")
 @RestController
 public class OrderController {
 
@@ -86,6 +86,7 @@ public class OrderController {
         orderService.save(order);
         return true;
     }
+
 
     @RequestMapping("/mockup")
     public boolean addMockup() {
