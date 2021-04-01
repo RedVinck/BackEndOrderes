@@ -31,14 +31,14 @@ public class Order {
     private List<Long> orderid;
     private int totalPrice;
     private boolean paid;
-    private long userId;
+    private String userId;
 
 
     public Order() {
 
     }
 
-    public Order(int id, LocalDateTime date, List<Long> orderid, int totalPrice, boolean paid, int userId) {
+    public Order(int id, LocalDateTime date, List<Long> orderid, int totalPrice, boolean paid, String userId) {
         this.id = id;
         this.date = date;
         this.orderid = orderid;
@@ -47,7 +47,7 @@ public class Order {
         this.userId = userId;
     }
 
-    public Order(LocalDateTime date, List<Long> orderid, int totalPrice, boolean paid, int userId) {
+    public Order(LocalDateTime date, List<Long> orderid, int totalPrice, boolean paid, String userId) {
         this.date = date;
         this.orderid = orderid;
         this.totalPrice = totalPrice;
@@ -87,11 +87,11 @@ public class Order {
         this.paid = paid;
     }
 
-    public long getUserId() {
+    public String getUserId() {
         return userId;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 
