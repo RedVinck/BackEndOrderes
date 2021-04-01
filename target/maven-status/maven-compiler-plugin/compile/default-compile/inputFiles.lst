@@ -1,7 +1,8 @@
-C:\Users\DePau\IdeaProjects\ProjectWeekCloudBackend\src\main\java\com\redvinck\SpringBootProjectWeekCloud\ProductApplication.java
-C:\Users\DePau\IdeaProjects\ProjectWeekCloudBackend\src\main\java\com\redvinck\SpringBootProjectWeekCloud\ScopeValidator.java
-C:\Users\DePau\IdeaProjects\ProjectWeekCloudBackend\src\main\java\com\redvinck\SpringBootProjectWeekCloud\WebSecurityConfiguration.java
-C:\Users\DePau\IdeaProjects\ProjectWeekCloudBackend\src\main\java\com\redvinck\SpringBootProjectWeekCloud\ProductService.java
-C:\Users\DePau\IdeaProjects\ProjectWeekCloudBackend\src\main\java\com\redvinck\SpringBootProjectWeekCloud\Product.java
-C:\Users\DePau\IdeaProjects\ProjectWeekCloudBackend\src\main\java\com\redvinck\SpringBootProjectWeekCloud\ProductController.java
-C:\Users\DePau\IdeaProjects\ProjectWeekCloudBackend\src\main\java\com\redvinck\SpringBootProjectWeekCloud\ProductRepository.java
+C:\Users\DePau\IdeaProjects\ProjectWeekCloudOrders\src\main\java\com\redvinck\SpringBootProjectWeekCloud\OrderApplication.java
+C:\Users\DePau\IdeaProjects\ProjectWeekCloudOrders\src\main\java\com\redvinck\SpringBootProjectWeekCloud\OrderRepository.java
+C:\Users\DePau\IdeaProjects\ProjectWeekCloudOrders\src\main\java\com\redvinck\SpringBootProjectWeekCloud\Product.java
+C:\Users\DePau\IdeaProjects\ProjectWeekCloudOrders\src\main\java\com\redvinck\SpringBootProjectWeekCloud\ScopeValidator.java
+C:\Users\DePau\IdeaProjects\ProjectWeekCloudOrders\src\main\java\com\redvinck\SpringBootProjectWeekCloud\Order.java
+C:\Users\DePau\IdeaProjects\ProjectWeekCloudOrders\src\main\java\com\redvinck\SpringBootProjectWeekCloud\OrderController.java
+C:\Users\DePau\IdeaProjects\ProjectWeekCloudOrders\src\main\java\com\redvinck\SpringBootProjectWeekCloud\OrderService.java
+C:\Users\DePau\IdeaProjects\ProjectWeekCloudOrders\src\main\java\com\redvinck\SpringBootProjectWeekCloud\WebSecurityConfiguration.java
